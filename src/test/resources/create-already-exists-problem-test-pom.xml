@@ -1,0 +1,18 @@
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.silentsoft.maven.plugins</groupId>
+        <artifactId>acmicpc-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <problem>foobar</problem>
+          <template>java</template>
+          <problemsDirectory>target/square/problems</problemsDirectory>
+          <templatesDirectory>target/test-classes/templates</templatesDirectory>
+          <pomFile>target/test-classes/create-already-exists-problem-test-pom.xml</pomFile>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

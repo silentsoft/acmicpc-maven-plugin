@@ -1,0 +1,21 @@
+<project>
+  <groupId>org.silentsoft</groupId>
+  <artifactId>acmicpc-kit</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.silentsoft.maven.plugins</groupId>
+        <artifactId>acmicpc-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <problem>1234</problem>
+          <template>java</template>
+          <problemsDirectory>target/square/problems</problemsDirectory>
+          <templatesDirectory>target/test-classes/empty-templates</templatesDirectory>
+          <pomFile>target/test-classes/create-default-template-test-pom.xml</pomFile>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

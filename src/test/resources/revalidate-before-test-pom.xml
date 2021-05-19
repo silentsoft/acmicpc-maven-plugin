@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.silentsoft</groupId>
+  <artifactId>acmicpc-kit</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.silentsoft.maven.plugins</groupId>
+        <artifactId>acmicpc-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <problemsDirectory>target/test-classes/revalidate-before-problems</problemsDirectory>
+          <maxDepth>2147483647</maxDepth>
+          <pomFile>target/test-classes/revalidate-before-test-pom.xml</pomFile>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

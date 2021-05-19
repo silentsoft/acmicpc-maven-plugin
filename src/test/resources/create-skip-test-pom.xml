@@ -1,0 +1,19 @@
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.silentsoft.maven.plugins</groupId>
+        <artifactId>acmicpc-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <skip>true</skip>
+          <problem>1234</problem>
+          <template>java</template>
+          <problemsDirectory>target/square/problems</problemsDirectory>
+          <templatesDirectory>target/test-classes/templates</templatesDirectory>
+          <pomFile>target/test-classes/create-skip-test-pom.xml</pomFile>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,14 @@
+<project>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.silentsoft.maven.plugins</groupId>
+                <artifactId>acmicpc-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <problem>true</problem>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
