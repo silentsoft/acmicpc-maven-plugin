@@ -21,6 +21,7 @@ public class CreateMojo extends AbstractMojo {
     private static final String TEMPLATE = "template";
     private static final String PROBLEMS_DIRECTORY = "problemsDirectory";
     private static final String TEMPLATES_DIRECTORY = "templatesDirectory";
+    private static final String SITE = "site";
     private static final String POM_FILE = "pomFile";
     private static final String SKIP = "skip";
 
@@ -35,6 +36,9 @@ public class CreateMojo extends AbstractMojo {
 
     @Parameter(property = TEMPLATES_DIRECTORY, defaultValue = "${project.basedir}/templates", required = true)
     private File templatesDirectory;
+
+    @Parameter(property = SITE, required = true)
+    private String site;
 
     @Parameter(property = POM_FILE, defaultValue = "${project.basedir}/pom.xml", required = true)
     private File pomFile;
@@ -52,6 +56,7 @@ public class CreateMojo extends AbstractMojo {
         ParameterUtils.checkParameter(TEMPLATE, getTemplate());
         ParameterUtils.checkParameter(PROBLEMS_DIRECTORY, getProblemsDirectory().getPath());
         ParameterUtils.checkParameter(TEMPLATES_DIRECTORY, getTemplatesDirectory().getPath());
+        ParameterUtils.checkParameter(SITE, getSite());
         ParameterUtils.checkParameter(POM_FILE, getPomFile().getPath());
 
         createProblem();
@@ -107,12 +112,16 @@ public class CreateMojo extends AbstractMojo {
         return templatesDirectory;
     }
 
+    private String getSite() {
+        return (site == null ? "" : site);
+    }
+
     private File getPomFile() {
         return pomFile;
     }
 
     private Path getProblemDirectory() {
-        return getProblemsDirectory().toPath().resolve(getProblem());
+        return getProblemsDirectory().toPath().resolve(getSite()).resolve(getProblem());
     }
 
     private Path getTemplateDirectory() throws URISyntaxException {
@@ -127,10 +136,20 @@ public class CreateMojo extends AbstractMojo {
     }
 
     private Path getUserDefinedTemplateDirectory() {
+        Path siteTemplateDirectory = getTemplatesDirectory().toPath().resolve(getSite()).resolve(getTemplate());
+        if (Files.exists(siteTemplateDirectory)) {
+            return siteTemplateDirectory;
+        }
+
         return getTemplatesDirectory().toPath().resolve(getTemplate());
     }
 
     private Path getDefaultTemplateDirectory() throws URISyntaxException {
+        Path siteTemplateDirectory = Paths.get(normalize(getClass().getResource("/templates").toURI())).resolve(getSite()).resolve(getTemplate());
+        if (Files.exists(siteTemplateDirectory)) {
+            return siteTemplateDirectory;
+        }
+
         return Paths.get(normalize(getClass().getResource("/templates").toURI())).resolve(getTemplate());
     }
 
