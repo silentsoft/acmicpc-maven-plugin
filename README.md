@@ -8,7 +8,7 @@
 
 `Acmicpc Maven Plugin` is a simple maven plugin for creating the `problem` project using fully customizable templates.
 
-## Related project
+## Related Project
   - [Acmicpc Kit](https://github.com/silentsoft/acmicpc-kit)
 
 ## Maven Central
@@ -18,17 +18,18 @@
     <plugin>
       <groupId>org.silentsoft.maven.plugins</groupId>
       <artifactId>acmicpc-maven-plugin</artifactId>
-      <version>1.0.0</version>
+      <version>1.1.0</version>
       <extensions>true</extensions>
       <configuration>
         <template>java</template>
+        <!-- <site>leetcode.com</site> -->
       </configuration>
     </plugin>
   </plugins>
 </build>
 ```
 
-## Example usages
+## Example Usages
   - Creating a problem
     ```
     $ mvn -N acmicpc:create -Dproblem=1234 
@@ -37,12 +38,19 @@
     ```
     $ mvn -N acmicpc:create -Dproblem=1234 -Dtemplate=specific
     ```
+  - Creating a problem for specific site
+    ```
+    $ mvn -N acmicpc:create -Dproblem=two-sum -Dsite=leetcode.com
+    ```
   - Revalidating project
     ```
     $ mvn -N acmicpc:revalidate
     ```
 
 ## Frequently Asked Questions
+- **I'm using another site(s) instead of acmicpc.net to solve algorithm problems. Can I use this program?**
+  > Of course you can. There are no restrictions on the use of this program. And you can edit the template. If you are using multiple sites then you can set `site` property. It's up to you.
+
 - Can you provide a feature to download the problem text as a file from acmicpc.net ?
   > No. This can lead to sensitive issues related to copyright. Also, web scraping isn't allowed according to the [rules](https://www.acmicpc.net/help/rule).
 
