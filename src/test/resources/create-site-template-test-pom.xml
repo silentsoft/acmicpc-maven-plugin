@@ -1,0 +1,22 @@
+<project>
+  <groupId>org.silentsoft</groupId>
+  <artifactId>acmicpc-kit</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.silentsoft.maven.plugins</groupId>
+        <artifactId>acmicpc-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <problem>two-sum</problem>
+          <template>java</template>
+          <problemsDirectory>target/square/problems</problemsDirectory>
+          <templatesDirectory>target/test-classes/override-templates</templatesDirectory>
+          <site>leetcode.com</site>
+          <pomFile>target/test-classes/create-site-template-test-pom.xml</pomFile>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -56,6 +56,18 @@ public class CreateMojoTest extends AbstractMojoTestCase {
         Assert.assertTrue(Validator.contentEquals(Paths.get("src/test/resources/create-override-template-expected-problems/1234"), problemsDirectory.toPath().resolve(problem)));
     }
 
+    public void testSiteTemplate() throws Exception {
+        AbstractMojo createMojo = (AbstractMojo) lookupMojo("create", new File("target/test-classes/create-site-template-test-pom.xml"));
+        Assert.assertNotNull(createMojo);
+        createMojo.execute();
+
+        File problemsDirectory = (File) getVariableValueFromObject(createMojo, "problemsDirectory");
+        String site = (String) getVariableValueFromObject(createMojo, "site");
+        String problem = (String) getVariableValueFromObject(createMojo, "problem");
+
+        Assert.assertTrue(Validator.contentEquals(Paths.get("src/test/resources/create-site-template-expected-problems/leetcode.com/two-sum"), problemsDirectory.toPath().resolve(site).resolve(problem)));
+    }
+
     public void testNotExistsTemplate() throws Exception {
         assertExpectedException(MojoFailureException.class, () -> {
             AbstractMojo createMojo = (AbstractMojo) lookupMojo("create", new File("target/test-classes/create-not-exists-template-test-pom.xml"));
