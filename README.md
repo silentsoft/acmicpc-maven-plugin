@@ -4,7 +4,7 @@
 [![Build Status](https://app.travis-ci.com/silentsoft/acmicpc-maven-plugin.svg?branch=main)](https://app.travis-ci.com/silentsoft/acmicpc-maven-plugin)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=silentsoft_acmicpc-maven-plugin&metric=alert_status)](https://sonarcloud.io/dashboard?id=silentsoft_acmicpc-maven-plugin)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=silentsoft_acmicpc-maven-plugin&metric=coverage)](https://sonarcloud.io/dashboard?id=silentsoft_acmicpc-maven-plugin)
-[![Hits](https://hits.sh/github.com/silentsoft/acmicpc-maven-plugin.svg)](https://hits.sh)
+[![Hits](https://hits.sh/github.com/silentsoft/acmicpc-maven-plugin.svg)](https://hits.sh/github.com/silentsoft/acmicpc-maven-plugin/)
 
 `Acmicpc Maven Plugin` is a simple maven plugin for creating the `problem` project using fully customizable templates.
 
